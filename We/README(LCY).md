@@ -1043,7 +1043,7 @@ cd /home/ubuntu/repo/ssakins/ssakins_home
 docker restart ssakins1
 
 // root 에 접근
-sudo docker exec -u root -it ssakins2 /bin/bash 
+sudo docker exec -u root -it ssakins4 /bin/bash 
 
 // 도커 확인
 sudo docker ps -a
@@ -1361,6 +1361,68 @@ REMOTEDIRECTORY=[안 받아요 몰라경로]
 ◆BACKEXECCOMMAND="sh [몰라경로 ssakins_home/remoteDirectory]/deploy-spring.sh"
 
 ```
+
+* accountInfo 예시 (dockername = ssakins4)
+
+```shell
+PROJECTNAME=test4
+
+# Groovy 
+URL=k3a201.p.ssafy.io
+PORT=8484
+
+# Git 
+GITID=gitlab
+GITUSERNAME=sooya12
+GITPASSWORD=1234
+GITURL=lab.ssafy.com/s03-final/1222
+GITKIND=null
+GITCREDENTIAL=gitlab
+
+# GitLabConnectionConfig.xml 
+GITLABCONFIGNAME=gitlab
+GITLABCONFIGURL=lab.ssafy.com/
+# GITLABCONFIGCREDENTIAL는 Groovy 사용 
+
+# github-plugin-configuration.xml 
+GITHUBCONFIGNAME=gitlab
+GITHUBCONFIGURL=lab.ssafy.com/
+# GITHUBCONFIGCREDENTIAL는 Groovy 사용 
+
+# BapSshPublisherPlugin.xml 
+SSHNAME=test4
+IPADDRESS=null
+SERVERUSERNAME=null
+SERVERPASSWORD=1234
+PEMKEY=-----BEGIN RSA PRIVATE KEY-----MIIEogIBAAKCAQEAuA6pozp5BwUBz7y1qV30JVJew3ZvZ41Kq9vNk19M65JcCOQHlA74VX50yvhPppKvxxzHe09MCxAPRHOLxV13tcXBCg8VaTanNMb7owVlmUim3sGTHZPMOOOr0JFrjpqgbTkQJKwFQzVcZnmj7WCmiJPtLQfqbzO79hgHymnIHMOxtr7RgWuGBl3ToYzfQ6kGz78pnenQwWjJRGKsB4vCYj0ajYSBADDCYQjyUUMmuYz6ZHUD1Zvn9byn5GazI0gQDQ7iJNMj1f9Q3RDTNztBXkZg9u0m92UQnxYeoYHLnbFqk5itrawbafnd/dgDZ+QIEU4F5lQ2aDRr5teexc8VvwIDAQABAoIBADjrNSlkYXtM3k1p4wf5PhsHKL7rm8RQpOqA1aHGSBV3rcYceUtZFi0OVv0tn1ZOyTZtEoXaDSL5aAkQnQ9NMu4rLzVhDMYQtwOXSJnA3unsKq98qtK4nIhwWzIdGJDSCwA5HMD1vhAqgtWQUTovQCzmwx/vpqMfa+JXNDrht+TtKw8QOaxqA548YmsFXywecDvHNZ7OLY4k4XBQ/95IK1SFAaA242OZF2QqVnZ3CqAnzWn8RBsz/R6iWzbx/H1WV7jGyL8gyn3E+4/bFdYtCCUfe6VF25L5OrQq8VELkiJddSI1wjRBM2muczuY0gk5WksOW9cwbB1fazm1ebECgYEA8f6SBBp3e9rpp20OwD8wBLOfCDplTW9dW+n/6Cr8RWVSJ9cOaL3A5GECjfA2zb5Q6zDSOGcHEID0ssi57hgMMXFwIHpRfOrcF3Y7xmVWhdt6FGPsDCKU1xf4KT1BLt5c7z1ZtnsH3gsJUZZDmqdHt3JWagd/LhAfYjWMfJkCgYEAwrWu1gIi0zpPoalSSMaXhOtRCpi3lMfn65nXZwLonMQX99qk7QirOFzOb+oIz3+RRHe0sfASb+BIKP1JfBfSQCsdA2ux7bggtCS5le2xFzf6r/ER6ALfJPoUYqOgOcbHedE0Uq9KZLSyauzPKb2RP8bFmh9aXMKSkIn2BMZhBcCgYApmXumTRewUjM3SrWI9xh75D++suG0lrJk97bHiNVF8lHhVBPEjLEt2dv67a6ngIHFEnPXmYD+kpKZr/XmI58Lf33pIiv5rHOyM0/RenJkNFbecvbicNWup+t04fuLn11p/fOIqtheTKVNdbQRuKAGuhq3QTcgp43qimd1IZMQKBgHaA+0L3E9j5QWQD2LfAXpGgYrePURQ1QtrqyW/KHHZCzlnkj9Nql/ZCBLEUewvWotbQVrNt1uZJzF44aqPOWfF85wKl+jVAwv2d/9RW37PRD+KMbLkKJBrkyGh8sCR3/qxGz7BQ0we4/6Knf3VoykSuHb4jLR0a/IVfE0B/AoGAanLeptRvRgNUVH27v5aUsZ3pUbvfydl2EbVY9YtYxSkzX88nOQuEks/kcuIVX511wODRqFHFbdf6lMPk1UWkyD0jgrFhaj1YAgxOwcNzpQnAfAIW63j6Q1cwT5okmdwDCqjLPdyv+A4BLmZdIlczcZC22dNRvFJfQCvTvWEPI=-----END RSA PRIVATE KEY-----
+# REMOTEDIRECTORY는 pwd로 deploy 경로 조회해서 사용 
+
+# jobs.item.config.xml 
+ITEM=test4
+GITREPOSITORYURL=lab.ssafy.com/s03-final/
+GITREPOSITORYGIT=lab.ssafy.com/s03-final/1222
+GITCREDENTIAL=gitlab
+CONFIGNAME=test4
+
+# Front Infomation 
+FRONTLOCATION=/frontend/
+FRONTPORT=80 
+SOURCEFILE=/frontend/dist 
+FRONTREMOVEPREFIX=/frontend/
+FRONTEXECCOMMAND='sh 절대경로/jenkins_home/remoteDirectory/deploy-vue.sh' 
+
+# Back Infomation 
+BACKLOCATION=/backend/src/main
+BACKPORT=8080
+POMXMLLOCATION=/backend/src/main/pom.xml 
+SOURCEFILE=/backend/src/main/target/*.jar 
+BACKREMOVEPREFIX=/backend/src/main/target/ 
+BACKEXECCOMMAND='sh 절대경로/jenkins_home/remoteDirectory/deploy-spring.sh' 
+
+
+```
+
+
 
 
 
@@ -1691,7 +1753,7 @@ sed -i '/apiTokenId\//d' /var/jenkins_home/com.dabsquared.gitlabjenkins.connecti
 
 
 
-* lab.groovy 만들어진 모습
+> lab.groovy 만들어진 모습
 
 ```groovy
 import hudson.util.Secret
@@ -1704,7 +1766,7 @@ println(secret.getEncryptedValue())
 
 
 
-* 그루비 사용하기 위해서 ssakins_home 위치에서 설치
+> 그루비 사용하기 위해서 ssakins_home 위치에서 설치
 
 ```shell
 wget -P /bin http://k3a201.p.ssafy.io:8282/jnlpJars/jenkins-cli.jar
@@ -1722,14 +1784,6 @@ println(secret.getEncryptedValue())
 ```
 
 여기서 비밀번호 설정 -> 출력됨
-
-> 비밀번호 설정 값을 가져와야함
->
-> 출력된 값을 변수로 가져와야함
->
-> 그 변수를 gitlab.xml  
-
-
 
 
 
@@ -1789,6 +1843,64 @@ println(hudson.util.Secret.decrypt("{AQAAABAAAAAwlGBrc02snzrQn+M58w/OzGpyJKDwtpL
 final 폴더에 sh파일이랑 xml 파일 다 넣기
 
 
+
+# 2020년 11월 11일
+
+* 오늘 할 일
+
+어제 넣었던 거 테스트하기 (한 번에 실행 안 될 수 있음)
+
+> name, hostname 순서 때문인지 잘 파악하기
+
+
+
+상대경로 안먹음 -> 다 절대경로로 바꾸기
+
+jobs 안에 config.xml 안생김
+
+파일명 오류 : credentials, publish_over_ssh 로 수정
+
+
+
+if 문 때문에 sh -> bash 명령어로 대체
+
+jenkins_cli 설치해야함 for groovy
+
+
+
+* 플러그인 설치
+
+publish_over_ssh 
+
+gitlab 
+
+nodejs 
+
+
+
+accountInfo.sh 경로 설정하기
+
+
+
+*  final <- final2
+
+com.dab
+
+
+
+
+
+* final <- final3
+
+jenkins_cli 위치 변경하기
+
+
+
+
+
+* 밥먹고하기...
+
+final 복사해서 credential 확인하기
 
 
 
