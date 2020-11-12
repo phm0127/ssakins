@@ -1365,59 +1365,7 @@ REMOTEDIRECTORY=[안 받아요 몰라경로]
 * accountInfo 예시 (dockername = ssakins4)
 
 ```shell
-PROJECTNAME=test4
 
-# Groovy 
-URL=k3a201.p.ssafy.io
-PORT=8484
-
-# Git 
-GITID=gitlab
-GITUSERNAME=sooya12
-GITPASSWORD=1234
-GITURL=lab.ssafy.com/s03-final/1222
-GITKIND=null
-GITCREDENTIAL=gitlab
-
-# GitLabConnectionConfig.xml 
-GITLABCONFIGNAME=gitlab
-GITLABCONFIGURL=lab.ssafy.com/
-# GITLABCONFIGCREDENTIAL는 Groovy 사용 
-
-# github-plugin-configuration.xml 
-GITHUBCONFIGNAME=gitlab
-GITHUBCONFIGURL=lab.ssafy.com/
-# GITHUBCONFIGCREDENTIAL는 Groovy 사용 
-
-# BapSshPublisherPlugin.xml 
-SSHNAME=test4
-IPADDRESS=null
-SERVERUSERNAME=null
-SERVERPASSWORD=1234
-PEMKEY=-----BEGIN RSA PRIVATE KEY-----MIIEogIBAAKCAQEAuA6pozp5BwUBz7y1qV30JVJew3ZvZ41Kq9vNk19M65JcCOQHlA74VX50yvhPppKvxxzHe09MCxAPRHOLxV13tcXBCg8VaTanNMb7owVlmUim3sGTHZPMOOOr0JFrjpqgbTkQJKwFQzVcZnmj7WCmiJPtLQfqbzO79hgHymnIHMOxtr7RgWuGBl3ToYzfQ6kGz78pnenQwWjJRGKsB4vCYj0ajYSBADDCYQjyUUMmuYz6ZHUD1Zvn9byn5GazI0gQDQ7iJNMj1f9Q3RDTNztBXkZg9u0m92UQnxYeoYHLnbFqk5itrawbafnd/dgDZ+QIEU4F5lQ2aDRr5teexc8VvwIDAQABAoIBADjrNSlkYXtM3k1p4wf5PhsHKL7rm8RQpOqA1aHGSBV3rcYceUtZFi0OVv0tn1ZOyTZtEoXaDSL5aAkQnQ9NMu4rLzVhDMYQtwOXSJnA3unsKq98qtK4nIhwWzIdGJDSCwA5HMD1vhAqgtWQUTovQCzmwx/vpqMfa+JXNDrht+TtKw8QOaxqA548YmsFXywecDvHNZ7OLY4k4XBQ/95IK1SFAaA242OZF2QqVnZ3CqAnzWn8RBsz/R6iWzbx/H1WV7jGyL8gyn3E+4/bFdYtCCUfe6VF25L5OrQq8VELkiJddSI1wjRBM2muczuY0gk5WksOW9cwbB1fazm1ebECgYEA8f6SBBp3e9rpp20OwD8wBLOfCDplTW9dW+n/6Cr8RWVSJ9cOaL3A5GECjfA2zb5Q6zDSOGcHEID0ssi57hgMMXFwIHpRfOrcF3Y7xmVWhdt6FGPsDCKU1xf4KT1BLt5c7z1ZtnsH3gsJUZZDmqdHt3JWagd/LhAfYjWMfJkCgYEAwrWu1gIi0zpPoalSSMaXhOtRCpi3lMfn65nXZwLonMQX99qk7QirOFzOb+oIz3+RRHe0sfASb+BIKP1JfBfSQCsdA2ux7bggtCS5le2xFzf6r/ER6ALfJPoUYqOgOcbHedE0Uq9KZLSyauzPKb2RP8bFmh9aXMKSkIn2BMZhBcCgYApmXumTRewUjM3SrWI9xh75D++suG0lrJk97bHiNVF8lHhVBPEjLEt2dv67a6ngIHFEnPXmYD+kpKZr/XmI58Lf33pIiv5rHOyM0/RenJkNFbecvbicNWup+t04fuLn11p/fOIqtheTKVNdbQRuKAGuhq3QTcgp43qimd1IZMQKBgHaA+0L3E9j5QWQD2LfAXpGgYrePURQ1QtrqyW/KHHZCzlnkj9Nql/ZCBLEUewvWotbQVrNt1uZJzF44aqPOWfF85wKl+jVAwv2d/9RW37PRD+KMbLkKJBrkyGh8sCR3/qxGz7BQ0we4/6Knf3VoykSuHb4jLR0a/IVfE0B/AoGAanLeptRvRgNUVH27v5aUsZ3pUbvfydl2EbVY9YtYxSkzX88nOQuEks/kcuIVX511wODRqFHFbdf6lMPk1UWkyD0jgrFhaj1YAgxOwcNzpQnAfAIW63j6Q1cwT5okmdwDCqjLPdyv+A4BLmZdIlczcZC22dNRvFJfQCvTvWEPI=-----END RSA PRIVATE KEY-----
-# REMOTEDIRECTORY는 pwd로 deploy 경로 조회해서 사용 
-
-# jobs.item.config.xml 
-ITEM=test4
-GITREPOSITORYURL=lab.ssafy.com/s03-final/
-GITREPOSITORYGIT=lab.ssafy.com/s03-final/1222
-GITCREDENTIAL=gitlab
-CONFIGNAME=test4
-
-# Front Infomation 
-FRONTLOCATION=/frontend/
-FRONTPORT=80 
-SOURCEFILE=/frontend/dist 
-FRONTREMOVEPREFIX=/frontend/
-FRONTEXECCOMMAND='sh 절대경로/jenkins_home/remoteDirectory/deploy-vue.sh' 
-
-# Back Infomation 
-BACKLOCATION=/backend/src/main
-BACKPORT=8080
-POMXMLLOCATION=/backend/src/main/pom.xml 
-SOURCEFILE=/backend/src/main/target/*.jar 
-BACKREMOVEPREFIX=/backend/src/main/target/ 
-BACKEXECCOMMAND='sh 절대경로/jenkins_home/remoteDirectory/deploy-spring.sh' 
 
 
 ```
@@ -1904,7 +1852,41 @@ final 복사해서 credential 확인하기
 
 
 
+# 2020년 11월 12일
+
+* final 말고 final2 파일로 테스트해보기 (ssakins4)
+
+고쳐야되는 파일 몇개 수정해야됨 -> credential 부분
+
+> * 고친 부분
+>
+> ssakins-setting.sh
+>
+> ssakins_credential.sh
+
+
+
+* jenkins_cli 설치 부분에 http 빼기
+
+* gitlab일때 체크 부분 빼기
+* credential 비번 확인
 
 
 
 
+
+### 내일 할 일
+
+* 지금 안되는 거
+
+gitlab github 구분
+
+lab.sh 파일에 if 문 넣어서 수정해야함
+
+sh 파일이 실행되지 않음
+
+true / false 위치 파악해야함 (실테스트가 필요함)
+
+
+
+* 피피티 만들기
