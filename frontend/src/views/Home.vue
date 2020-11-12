@@ -70,28 +70,32 @@
     <star></star>
     <star></star>
     <star></star>
-    <div id="title" style="z-index=2; text-align: center; float:center;">
-      <!-- <b>SSAKINS</b> -->
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Monoton&effect=neon"
-      />
+    <div id="login">
+      <div id="title" style="z-index=2; text-align: center; float:center;">
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Monoton&effect=neon"
+        />
 
-      <div
-        class="font-effect-neon"
-        style="font-family: Monoton; font-size: 8em;"
-      >
-        SSAKINS
+        <div
+          class="font-effect-neon"
+          style="font-family: Monoton; font-size: 6vw;"
+        >
+          SSAKINS
+        </div>
       </div>
-    </div>
-    <div id="logo" style="z-index=2; text-align: center; float:center;">
-      <img :src="require('@/assets/test.png')" style="width:23%; z-index=2;" />
-    </div>
-    <div id="kakaoLogin" style="position: relative; z-index=2; float:center;">
-      <img
-        :src="require('@/assets/kakao_login_large_narrow.png')"
-        @click="kakaoLogin"
-      />
+      <div id="logo" style="z-index=2; text-align: center; float:center;">
+        <img
+          :src="require('@/assets/test.png')"
+          style="width:23%; z-index=2;"
+        />
+      </div>
+      <div id="kakaoLogin" style="position: relative; z-index=2; float:center;">
+        <img
+          :src="require('@/assets/kakao_login_large_narrow.png')"
+          @click="kakaoLogin"
+        />
+      </div>
     </div>
     <br />
   </sky>
@@ -106,6 +110,15 @@ export default {
         this.$store.state.server +
         "account/login&response_type=code";
     },
+  },
+  mounted() {
+    if (
+      sessionStorage.getItem("email") != null &&
+      window.location.pathname == "/"
+    ) {
+      this.$router.push("/main");
+      console.log("null?");
+    }
   },
 };
 </script>
@@ -165,7 +178,6 @@ span {
 #title {
   position: relative;
   text-align: center;
-  margin-top: 50px;
 }
 
 #title b {
@@ -182,5 +194,10 @@ span {
 
 #kakaoLogin img {
   width: 15%;
+}
+
+#login {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 </style>
