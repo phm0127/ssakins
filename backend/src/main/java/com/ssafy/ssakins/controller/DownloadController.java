@@ -39,8 +39,8 @@ public class DownloadController {
         ZipOutputStream zipOutputStream = new ZipOutputStream(bufferedOutputStream);
 
         Deque<File> files = new LinkedList<>();
-        URI base = resourceLoader.getResource("classpath:static/").getFile().toURI();
-        Resource resource = resourceLoader.getResource("classpath:static/ssakins/");
+        URI base = resourceLoader.getResource("/static/").getURI();
+        Resource resource = resourceLoader.getResource("/static/ssakins/");
         files.add(resource.getFile());
         while (!files.isEmpty()) {
             File dir =files.pop();
@@ -122,14 +122,14 @@ public class DownloadController {
         Resource resource = resourceLoader.getResource("classpath:static/ssakins/");
         files.add(resource.getFile());
         while (!files.isEmpty()) {
-            File dir =files.pop();
+            File dir = files.pop();
             //new zip entry and copying inputstream with file to zipOutputStream, after all closing streams
-            for(File file : dir.listFiles()) {
+            for (File file : dir.listFiles()) {
                 String name = base.relativize(file.toURI()).getPath();
                 if (file.isDirectory()) {
                     files.push(file);
                     //IOUtils.copy(fileInputStream, zipOutputStream);
-                    name = name.endsWith("/")?name:name+"/";
+                    name = name.endsWith("/") ? name : name + "/";
                     zipOutputStream.putNextEntry(new ZipEntry(name));
                     //zipOutputStream.closeEntry();
                 } else {
@@ -238,7 +238,7 @@ public class DownloadController {
                         fw.write("FRONTREMOVEPREFIX=" + server.getInfo() + "/ \n");
                         fw.write("FRONTEXECCOMMAND=/deploy-vue.sh \n");
                         fw.write("\n");
-                    } else if("Spring".equals(server.getKind())) {
+                    } else if("Spring".equals(server.getKind())||server.getKind().equals("Spring_maven")) {
                         fw.write("# Back Infomation \n");
                         fw.write("BACKLOCATION=" + server.getInfo() + "\n");
                         fw.write("BACKPORT=" + server.getPort() + "\n");
