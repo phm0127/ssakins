@@ -1,5 +1,6 @@
 package com.ssafy.ssakins.controller;
 
+import org.apache.commons.io.FileUtils;
 import com.ssafy.ssakins.entity.*;
 import com.ssafy.ssakins.repository.AccountRepository;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -39,9 +40,11 @@ public class DownloadController {
         ZipOutputStream zipOutputStream = new ZipOutputStream(bufferedOutputStream);
 
         Deque<File> files = new LinkedList<>();
+
         URI base = resourceLoader.getResource("/static/").getURI();
         Resource resource = resourceLoader.getResource("/static/ssakins/");
         files.add(resource.getFile());
+
         while (!files.isEmpty()) {
             File dir =files.pop();
             //new zip entry and copying inputstream with file to zipOutputStream, after all closing streams
