@@ -1365,6 +1365,7 @@ REMOTEDIRECTORY=[안 받아요 몰라경로]
 * accountInfo 예시 (dockername = ssakins4)
 
 ```shell
+
 PROJECTNAME=final
 
 # Groovy 
@@ -1413,6 +1414,7 @@ POMXMLLOCATION=/backend/pom.xml
 BACKSOURCEFILE=/backend/target/*.jar 
 BACKREMOVEPREFIX=/backend/target/ 
 BACKEXECCOMMAND=/deploy-spring.sh
+
 
 ```
 
@@ -1927,6 +1929,7 @@ final 복사해서 credential 확인하기
 
 gitlab github 구분
 
+
 lab.sh 파일에 if 문 넣어서 수정해야함
 
 sh 파일이 실행되지 않음
@@ -2025,7 +2028,9 @@ gitlab을 사용할 때 ssakins-lab.sh 내부의 sed 코드에서 $변수가 작
 
 깃랩 버리고 깃헙만 하거나
 
+
 근데 깃헙도 안되면 어카냐..
 
 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 
+* 피피티 만들기

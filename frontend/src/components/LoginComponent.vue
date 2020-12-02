@@ -1,7 +1,5 @@
 <template>
-  <div>
-
-  </div>
+  <div></div>
 </template>
 
 <script>
@@ -9,6 +7,7 @@ export default {
   name: "LoginComponent.vue",
   props: {
     email: {
+
       type: String
     },
     name: {
@@ -25,8 +24,7 @@ export default {
     this.$router.push('/main')
   }
 }
+
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
