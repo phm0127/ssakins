@@ -22,10 +22,16 @@ export default {
     return {
       selectedItem: 1,
       items: [
-        {
+        /*{
           title: "SSAKINS 안내",
           icon: "mdi-information-outline",
           value: "/reference",
+          no: 0,
+        },*/
+        {
+          title: "프로젝트 생성",
+          icon: "mdi-note-plus",
+          value: "/create",
           no: 0,
         },
         {
@@ -36,8 +42,8 @@ export default {
         },
         {
           title: "SSAKINS 이용약관",
-          icon: "mdi-help-box",
-          value: "/info",
+          icon: "mdi-account-alert",
+          value: "/termsofuse",
           no: 2,
         },
         {

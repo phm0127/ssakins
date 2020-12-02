@@ -51,7 +51,7 @@
                   >
 
                     <template v-slot:append >
-                        <i class="fad fa-paste" style="color:#004D40;margin-right: 4%; font-size: 30px;" @click="copy()" ></i>
+                        <i class="fad fa-paste" style="color:#004D40;margin-right: 4%; font-size: 30px; cursor:pointer" @click="copy()" ></i>
                     </template>
                   </v-text-field>
                   <v-snackbar
@@ -77,7 +77,7 @@
                   </v-snackbar>
 
                 </div>
-                설치가 완료되면 폴더 내 install.sh 파일을 <span style="background-color: #e0f2f1; font-weight: bold; padding-left: 5px; " > &nbsp; sh install.sh &nbsp;</span> &nbsp; 명령어로 실행시켜주세요. <br>
+                (만약, 서버에 docker가 설치되어 있지 않다면  <v-hover> <span style="font-weight: bold; padding-left: 5px; color: blue; cursor:pointer " @click="installDockerPage()">  &nbsp;도커 설치페이지&nbsp;  </span> </v-hover>에서 운영체제에 맞는 docker를 먼저 설치해주세요.)<br><br>
                 서버의 사양에 따라 5~10분 후 젠킨스 서버 설치가 완료됩니다.
                 <br>
                 <br>
@@ -85,7 +85,8 @@
                 <span style="color:red;">※ 다음의 경우, 정상적인 서비스 사용이 불가하니 참고바랍니다.</span> <br>
                 <span style=" margin-left: 2%;">  &centerdot; &nbsp; 입력한 내용이 정확하지 않은 경우</span> <br>
                 <span style=" margin-left: 2%;">  &centerdot; &nbsp; 설정한 포트 번호 중 하나 이상의 포트가 이미 사용중인 경우</span> <br>
-                <span style=" margin-left: 2%;">  &centerdot; &nbsp; SSAKINS 서비스를 사용하여 두개 이상의 Jenkins 서버를 구동하는 경우</span> <br><br><br><br><br><br>
+                <span style=" margin-left: 2%;">  &centerdot; &nbsp; SSAKINS 서비스를 사용하여 두개 이상의 Jenkins 서버를 구동하는 경우</span>
+                <br><br><br><br><br><br>
                 <span style="color:red; margin-top: 0px;">위 주소를 타인과 공유하거나 공개된 곳에 게시하지 마세요.</span>
                 <div style="width: 80%; text-align: center; margin-top: 5%;" @click="more=false">
                   설명 닫기
@@ -106,7 +107,7 @@
                   >
 
                     <template v-slot:append >
-                      <i class="fad fa-paste" style="color:#004D40;margin-right: 4%; font-size: 30px;" @click="copy()" ></i>
+                      <i class="fad fa-paste" style="color:#004D40;margin-right: 4%; font-size: 30px; cursor:pointer" @click="copy()" ></i>
                     </template>
                   </v-text-field>
                   <v-snackbar
@@ -148,7 +149,7 @@
                 <br>
                 <div style="margin: 0">
                   <h3><div class="icon-div"><i class="fab fa-jenkins" style="font-size: 28px; font-weight: bold; color: #004D40"></i></div>Jenkins</h3><br>
-                  <div style="margin: auto; width: 60%">
+                  <div style="margin: auto; width: 90%">
                     <table style="width: 100%">
                       <tbody>
                         <tr style="margin: 0">
@@ -174,10 +175,6 @@
                           <td class="text-left" style="width: 75%">{{ project.git.giturl }}</td>
                         </tr>
                         <tr> 
-                          <td class="text-left" style="width: 15%"><h4>ID</h4></td>
-                          <td class="text-left" style="width: 75%">{{ project.git.id }}</td>
-                        </tr>
-                        <tr> 
                           <td class="text-left" style="width: 15%"><h4>name</h4></td>
                           <td class="text-left" style="width: 75%">{{ project.git.name }}</td>
                         </tr>
@@ -188,8 +185,8 @@
                         <tr>
                           <td class="text-left" style="width: 15%"><h4>Kind</h4></td>
                           <td class="text-left" style="width: 75%">
-                            <div v-if="project.git.type=='gitlab'">GitLab</div>
-                            <div v-if="project.git.type=='github'">GitHub</div>
+                            <div v-if="project.git.gitKind=='gitlab'">GitLab</div>
+                            <div v-if="project.git.gitKind=='github'">GitHub</div>
                           </td>
                         </tr>
                       </tbody>
@@ -298,8 +295,13 @@
           <tr>
             <td colspan="2">
               <div id="btn-area">
-                <v-btn class="font15" elevation="2" color="#B2DFDB" style="margin-right: 2vw; font-weight: bold"  @click="goEdit">수정하기</v-btn>
-                <v-btn class="font15" elevation="2" color="#004D40" style="color: white; margin-right: 2vw; font-weight: bold">삭제하기</v-btn>
+                <v-tooltip top color="#e0f2f1">
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn class="font15" elevation="2" color="#B2DFDB" style="margin-right: 2vw; font-weight: bold" v-bind="attrs" v-on="on" @click="goEdit">설정 가져가기</v-btn>
+                    </template>
+                    <span style="font-family: 'S-CoreDream-3Light'; color: black">현재 설정 정보를 가지고 새로운 설정을 생성할 수 있습니다.</span>
+                  </v-tooltip>
+                <v-btn class="font15" elevation="2" color="#004D40" style="color: white; margin-right: 2vw; font-weight: bold" @click="deleteProject">삭제하기</v-btn>
               </div>
             </td>
           </tr>
@@ -336,7 +338,7 @@ export default {
   },
   methods: {
     goEdit() {
-      this.$router.push("/edit")
+      this.$router.push({ name: "Edit", params: { name: this.name }})
     },
     keyToggle() {
       this.keyArrow=!this.keyArrow
@@ -355,6 +357,20 @@ export default {
       }
       document.body.removeChild(copyText)
     },
+    deleteProject() {
+      let projectName=[];
+      projectName.push(this.project.name)
+      axios.post(this.$store.state.server + "project/delete/" + this.userEmail, projectName)
+      .then(()=>{
+        this.$router.push('/main')
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
+    installDockerPage(){
+      window.open('https://docs.docker.com/engine/install/')
+
+    }
   },
   components: {
     navigator: Navigator,
@@ -362,8 +378,7 @@ export default {
   },
   mounted() {
     this.userEmail = sessionStorage.getItem('email')
-    this.ssakins='wget '+this.$store.state.server+'download/'+this.userEmail+'/'+this.name+' -O && unzip -d ssakins ssakins.zip && rm ssakins.zip'
-    console.log(this.name)
+    this.ssakins='wget '+this.$store.state.server+'download/'+this.userEmail+'/'+this.name+' -O ssakins.zip && sudo unzip -d ssakins ssakins.zip && sudo rm ssakins.zip && sh ssakins/ssakins/install.sh'
     axios.get(this.$store.state.server + 'project/' + this.userEmail + '/' + this.name)
     .then(res => {
       this.project = res.data
@@ -398,6 +413,7 @@ export default {
   width: 75%;
   margin: 0 auto;
   font-family: 'S-CoreDream-3Light';
+  float: left;
 }
 
 h3 {

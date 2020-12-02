@@ -1366,6 +1366,54 @@ REMOTEDIRECTORY=[안 받아요 몰라경로]
 
 ```shell
 
+PROJECTNAME=final
+
+# Groovy 
+URL=http://k3a201.p.ssafy.io
+PORT=8484
+
+# Git 
+GITID=gitlab
+GITUSERNAME=hyeonsu2014
+GITPASSWORD=hyeonsu2014@naver.com
+GITURL=https://lab.ssafy.com/s03-final/s03p31a201.git
+GITKIND=gitlab
+GITCREDENTIAL=gitlab
+
+# GitLabConnectionConfig.xml 
+GITLABCONFIGNAME=gitlab
+GITLABCONFIGURL=lab.ssafy.com/
+# GITLABCONFIGCREDENTIAL는 Groovy 사용 
+
+# BapSshPublisherPlugin.xml 
+SSHNAME=final
+IPADDRESS=k3a201.p.ssafy.io
+SERVERUSERNAME=ubuntu
+SERVERPASSWORD=
+PEMKEY=-----BEGIN RSA PRIVATE KEY-----MIIEogIBAAKCAQEAuA6pozp5BwUBz7y1qV30JVJew3ZvZ41Kq9vNk19M65JcCOQHlA74VX50yvhPppKvxxzHe09MCxAPRHOLxV13tcXBCg8VaTanNMb7owVlmUim3sGTHZPMOOOr0JFrjpqgbTkQJKwFQzVcZnmj7WCmiJPtLQfqbzO79hgHymnIHMOxtr7RgWuGBl3ToYzfQ6kGz78pnenQwWjJRGKsB4vCYj0ajYSBADDCYQjyUUMmuYz6ZHUD1Zvn9byn5GazI0gQDQ7iJNMj1f9Q3RDTNztBXkZg9u0m92UQnxYeoYHLnbFqk5itrawbafnd/dgDZ+QIEU4F5lQ2aDRr5teexc8VvwIDAQABAoIBADjrNSlkYXtM3k1p4wf5PhsHKL7rm8RQpOqA1aHGSBV3rcYceUtZFi0OVv0tn1ZOyTZtEoXaDSL5aAkQnQ9NMu4rLzVhDMYQtwOXSJnA3unsKq98qtK4nIhwWzIdGJDSCwA5HMD1vhAqgtWQUTovQCzmwx/vpqMfa+JXNDrht+TtKw8QOaxqA548YmsFXywecDvHNZ7OLY4k4XBQ/95IK1SFAaA242OZF2QqVnZ3CqAnzWn8RBsz/R6iWzbx/H1WV7jGyL8gyn3E+4/bFdYtCCUfe6VF25L5OrQq8VELkiJddSI1wjRBM2muczuY0gk5WksOW9cwbB1fazm1ebECgYEA8f6SBBp3e9rpp20OwD8wBLOfCDplTW9dW+n/6Cr8RWVSJ9cOaL3A5GECjfA2zb5Q6zDSOGcHEID0ssi57hgMMXFwIHpRfOrcF3Y7xmVWhdt6FGPsDCKU1xf4KT1BLt5c7z1ZtnsH3gsJUZZDmqdHt3JWagd/LhAfYjWMfJkCgYEAwrWu1gIi0zpPoalSSMaXhOtRCpi3lMfn65nXZwLonMQX99qk7QirOFzOb+oIz3+RRHe0sfASb+BIKP1JfBfSQCsdA2ux7bggtCS5le2xFzf6r/ER6ALfJPoUYqOgOcbHedE0Uq9KZLSyauzPKb2RP8bFmh9aXMKSkIn2BMZhBcCgYApmXumTRewUjM3SrWI9xh75D++suG0lrJk97bHiNVF8lHhVBPEjLEt2dv67a6ngIHFEnPXmYD+kpKZr/XmI58Lf33pIiv5rHOyM0/RenJkNFbecvbicNWup+t04fuLn11p/fOIqtheTKVNdbQRuKAGuhq3QTcgp43qimd1IZMQKBgHaA+0L3E9j5QWQD2LfAXpGgYrePURQ1QtrqyW/KHHZCzlnkj9Nql/ZCBLEUewvWotbQVrNt1uZJzF44aqPOWfF85wKl+jVAwv2d/9RW37PRD+KMbLkKJBrkyGh8sCR3/qxGz7BQ0we4/6Knf3VoykSuHb4jLR0a/IVfE0B/AoGAanLeptRvRgNUVH27v5aUsZ3pUbvfydl2EbVY9YtYxSkzX88nOQuEks/kcuIVX511wODRqFHFbdf6lMPk1UWkyD0jgrFhaj1YAgxOwcNzpQnAfAIW63j6Q1cwT5okmdwDCqjLPdyv+A4BLmZdIlczcZC22dNRvFJfQCvTvWEPI=-----END RSA PRIVATE KEY-----
+# REMOTEDIRECTORY는 pwd로 deploy 경로 조회해서 사용 
+
+# jobs.item.config.xml 
+ITEM=final4
+GITREPOSITORYURL=https://lab.ssafy.com/s03-final/s03p31a201
+GITREPOSITORYGIT=https://lab.ssafy.com/s03-final/s03p31a201.git
+GITCREDENTIALID=gitlab
+CONFIGNAME=final4
+
+# Front Infomation 
+FRONTLOCATION=/frontend
+FRONTPORT=80 
+FRONTSOURCEFILE=/frontend/dist 
+FRONTREMOVEPREFIX=/frontend/ 
+FRONTEXECCOMMAND=/deploy-vue.sh
+
+# Back Infomation 
+BACKLOCATION=/backend
+BACKPORT=8082
+POMXMLLOCATION=/backend/pom.xml 
+BACKSOURCEFILE=/backend/target/*.jar 
+BACKREMOVEPREFIX=/backend/target/ 
+BACKEXECCOMMAND=/deploy-spring.sh
 
 
 ```
@@ -1881,6 +1929,7 @@ final 복사해서 credential 확인하기
 
 gitlab github 구분
 
+
 lab.sh 파일에 if 문 넣어서 수정해야함
 
 sh 파일이 실행되지 않음
@@ -1888,5 +1937,100 @@ sh 파일이 실행되지 않음
 true / false 위치 파악해야함 (실테스트가 필요함)
 
 
+
+* 피피티 만들기
+
+
+
+# 2020년 11월 13일
+
+if -> ssakins-lab.sh
+
+else -> ssakins-github-plugin-configuration.sh
+
+
+
+새로운 도커 만들때
+
+accountInfo.sh + install.sh
+
+
+
+### 문제
+
+github, gitlab으로 실행할 경우 if 문으로 비교
+
+gitlab을 사용할 때 ssakins-lab.sh 내부의 sed 코드에서 $변수가 작동하지 않음
+
+단, ssakins-lab.sh안에서 sed문 밖에서 echo $는 작동됨 :smiley:
+
+
+
+> ### try
+>
+> * ssakins-setting.sh
+>
+> sh ssakins_lab.sh => **bash** ssakins_lab.sh 
+>
+> :red_circle: 안됨
+>
+> 
+>
+> * ssakins-setting.sh
+>
+> if 문 자체를 다 지워버림 -> sh ssakins-lab.sh을 실행안하고 ssakins-job.sh만 실행
+>
+> 두 sh 파일이 겹친다고 생각했지만 
+>
+> :red_circle: 그것도 아님 
+>
+> 
+>
+> * ssakins-setting.sh
+>
+> 여기서 사용되는 5개의 sh 파일의 실행 순서가 문제라고 생각함
+>
+> 현재 : jdk(config.xml) -> credentials(credentials.xml) -> lab(com.dab.con.xml) ->  ssh(jen.plu.pu.xml) -> job(jobconfig.xml)
+>
+> ssakins-setting.sh 내에 실행되는 5개의 sh 파일들 실행마다 **sleep 10** 줬음
+>
+> :red_circle: 순서 무관한 듯
+>
+> 
+>
+> * 5개의 sh 파일을 수동으로 실행시킴
+>
+> 값이 너무 잘 들어가서 완벽하다고 생각했음
+>
+> 근데 **docker restart** 하자마자 지랄남 -> gitlab 부분 xml 파일이 문제임
+>
+> :large_blue_circle: docker 시작할 때가 문제 -> 
+>
+> docker restart하면 젠킨스 > 시스템 관리 > gitlab부분 난리남 ->
+>
+> 당연히 /var/jenkins_home/ 에도 gitlab.xml 파일은 난장판
+>
+> :large_blue_circle: docker restart 후에는 gitlab 관련 다른 xml 파일이 새로 생김
+>
+> 
+>
+> * 새로 생기는 이유가 gitlab.xml 파일에서 <clientBuilder> 태그가 문제라고 생각했음
+>
+> 지우고 docker restart 해봤음
+>
+> :red_circle: 응 안돼
+
+
+
+### 내일 할 일
+
+... 하기싫어
+
+깃랩 버리고 깃헙만 하거나
+
+
+근데 깃헙도 안되면 어카냐..
+
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 
 * 피피티 만들기

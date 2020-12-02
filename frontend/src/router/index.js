@@ -10,6 +10,7 @@ import Detail from '@/views/Detail.vue'
 import Login from '@/components/LoginComponent'
 import PageNotFound from '@/views/PageNotFound'
 import Test from '@/views/Test'
+import TermsOfUse from "@/views/TermsOfUse";
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,7 @@ const routes = [
   {
     path: '/edit',
     name: 'Edit',
+    props: true,
     component: Edit 
   },
   {
@@ -56,7 +58,7 @@ const routes = [
     component : Game
   },
   {
-    path: '/login/:email',
+    path: '/login/:email/:name/:image',
     name: 'Login',
     component: Login,
     props: true
@@ -69,6 +71,11 @@ const routes = [
     path: '/404',
     component : PageNotFound,
   },
+  {
+    path: '/termsofuse',
+    name: 'TermsOfUse',
+    component: TermsOfUse
+  }
 ]
 
 const router = new VueRouter({

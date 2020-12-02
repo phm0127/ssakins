@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/project")
+@RequestMapping("/api/project")
 public class ProjectController {
 
     @Autowired
@@ -65,6 +65,12 @@ public class ProjectController {
     @RequestMapping(value = "/check/{email}/{projectName}", method = RequestMethod.GET)
     public ResponseEntity selectProjectName(@PathVariable String email, @PathVariable String projectName) {
         Account account = accountRepository.findByEmail(email).get();
+        List<Project> projectList = account.getProject();
+
+        if(projectList == null) {
+            return ResponseEntity.ok().body("ok");
+        }
+
         for (Project project : account.getProject()) {
             if(projectName.equals(project.getName())) {
                 return ResponseEntity.badRequest().body("duplication");
